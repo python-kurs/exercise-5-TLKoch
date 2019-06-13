@@ -62,4 +62,7 @@ tg_anomalies_2018.to_netcdf(output_dir / "europe_anom_2018.nc")
 
 
 tg_monthly_mean_anomalies_2018_mr = tg_anomalies_2018.sel(latitude=50.81, longitude = 8.77, method="nearest").to_dataframe()
+
+tg_monthly_mean_anomalies_2018_mr = tg_monthly_mean_anomalies_2018_mr.rename({'tg': 'anomaly'}, axis='columns')
+
 tg_monthly_mean_anomalies_2018_mr.to_csv(output_dir / "marburg_anom_2018.csv", header = True)
